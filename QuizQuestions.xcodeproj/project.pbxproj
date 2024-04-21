@@ -15,6 +15,12 @@
 		814F13232BD4E0F40012B6C3 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13222BD4E0F40012B6C3 /* StartView.swift */; };
 		814F13252BD4E9E60012B6C3 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13242BD4E9E60012B6C3 /* TextFieldExtension.swift */; };
 		814F13272BD4EE8C0012B6C3 /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13262BD4EE8C0012B6C3 /* UIStackViewExtension.swift */; };
+		814F132C2BD4FEC80012B6C3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F132B2BD4FEC80012B6C3 /* UIColor+Extension.swift */; };
+		814F13302BD502490012B6C3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F132F2BD502490012B6C3 /* Player.swift */; };
+		814F13322BD50FF60012B6C3 /* GameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13312BD50FF60012B6C3 /* GameVC.swift */; };
+		814F13342BD510200012B6C3 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13332BD510200012B6C3 /* GameView.swift */; };
+		814F13362BD514CD0012B6C3 /* AllQuastions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13352BD514CD0012B6C3 /* AllQuastions.swift */; };
+		814F13382BD5162A0012B6C3 /* AllAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13372BD5162A0012B6C3 /* AllAnswers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,12 @@
 		814F13222BD4E0F40012B6C3 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		814F13242BD4E9E60012B6C3 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		814F13262BD4EE8C0012B6C3 /* UIStackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
+		814F132B2BD4FEC80012B6C3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		814F132F2BD502490012B6C3 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		814F13312BD50FF60012B6C3 /* GameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVC.swift; sourceTree = "<group>"; };
+		814F13332BD510200012B6C3 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		814F13352BD514CD0012B6C3 /* AllQuastions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllQuastions.swift; sourceTree = "<group>"; };
+		814F13372BD5162A0012B6C3 /* AllAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAnswers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +72,63 @@
 		814F130D2BD4DA880012B6C3 /* QuizQuestions */ = {
 			isa = PBXGroup;
 			children = (
-				814F130E2BD4DA880012B6C3 /* AppDelegate.swift */,
-				814F13102BD4DA880012B6C3 /* SceneDelegate.swift */,
+				814F132D2BD501840012B6C3 /* SuppurtFiles */,
+				814F13282BD4FDD20012B6C3 /* Controllers */,
+				814F13292BD4FDE50012B6C3 /* Views */,
+				814F132E2BD5022D0012B6C3 /* Model */,
+				814F132A2BD4FE780012B6C3 /* Helpers+Extensions */,
+			);
+			path = QuizQuestions;
+			sourceTree = "<group>";
+		};
+		814F13282BD4FDD20012B6C3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				814F13122BD4DA880012B6C3 /* StartController.swift */,
+				814F13312BD50FF60012B6C3 /* GameVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		814F13292BD4FDE50012B6C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				814F13222BD4E0F40012B6C3 /* StartView.swift */,
+				814F13332BD510200012B6C3 /* GameView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		814F132A2BD4FE780012B6C3 /* Helpers+Extensions */ = {
+			isa = PBXGroup;
+			children = (
 				814F13242BD4E9E60012B6C3 /* TextFieldExtension.swift */,
 				814F13262BD4EE8C0012B6C3 /* UIStackViewExtension.swift */,
+				814F132B2BD4FEC80012B6C3 /* UIColor+Extension.swift */,
+			);
+			path = "Helpers+Extensions";
+			sourceTree = "<group>";
+		};
+		814F132D2BD501840012B6C3 /* SuppurtFiles */ = {
+			isa = PBXGroup;
+			children = (
+				814F130E2BD4DA880012B6C3 /* AppDelegate.swift */,
+				814F13102BD4DA880012B6C3 /* SceneDelegate.swift */,
 				814F13172BD4DA890012B6C3 /* Assets.xcassets */,
 				814F13192BD4DA890012B6C3 /* LaunchScreen.storyboard */,
 				814F131C2BD4DA890012B6C3 /* Info.plist */,
 			);
-			path = QuizQuestions;
+			path = SuppurtFiles;
+			sourceTree = "<group>";
+		};
+		814F132E2BD5022D0012B6C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				814F132F2BD502490012B6C3 /* Player.swift */,
+				814F13352BD514CD0012B6C3 /* AllQuastions.swift */,
+				814F13372BD5162A0012B6C3 /* AllAnswers.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,11 +201,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				814F132C2BD4FEC80012B6C3 /* UIColor+Extension.swift in Sources */,
+				814F13382BD5162A0012B6C3 /* AllAnswers.swift in Sources */,
 				814F13132BD4DA880012B6C3 /* StartController.swift in Sources */,
 				814F13272BD4EE8C0012B6C3 /* UIStackViewExtension.swift in Sources */,
 				814F130F2BD4DA880012B6C3 /* AppDelegate.swift in Sources */,
+				814F13342BD510200012B6C3 /* GameView.swift in Sources */,
+				814F13302BD502490012B6C3 /* Player.swift in Sources */,
 				814F13112BD4DA880012B6C3 /* SceneDelegate.swift in Sources */,
+				814F13362BD514CD0012B6C3 /* AllQuastions.swift in Sources */,
 				814F13252BD4E9E60012B6C3 /* TextFieldExtension.swift in Sources */,
+				814F13322BD50FF60012B6C3 /* GameVC.swift in Sources */,
 				814F13232BD4E0F40012B6C3 /* StartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,7 +358,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D7T3X3Y5K7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = QuizQuestions/Info.plist;
+				INFOPLIST_FILE = QuizQuestions/SuppurtFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -320,7 +384,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D7T3X3Y5K7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = QuizQuestions/Info.plist;
+				INFOPLIST_FILE = QuizQuestions/SuppurtFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

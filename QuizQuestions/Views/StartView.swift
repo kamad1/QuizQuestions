@@ -22,16 +22,20 @@ class StartView: UIView {
         // настройка внешнего вида кнопки
         startButton.setTitle("Старт!", for: .normal)
         startButton.tintColor = .white
-        startButton.backgroundColor = UIColor.startButton.withAlphaComponent(0.8)
+        startButton.backgroundColor = UIColor.startButtonColor.withAlphaComponent(0.8)
         startButton.layer.cornerRadius = 12
-        startButton.layer.shadowColor = UIColor.startButton.cgColor
+        startButton.layer.shadowColor = UIColor.startButtonColor.cgColor
         startButton.layer.shadowOpacity = 1
         startButton.layer.shadowOffset = .init(width: 5, height: 5)
         startButton.layer.shadowRadius = 4
         // Настройка внешнего вида лейбла
         titleLabel.text = "О, Счастливчик!"
         titleLabel.font = .boldSystemFont(ofSize: 30)
-        titleLabel.textColor = UIColor.startButton
+        titleLabel.textColor = .startLabelColor
+        titleLabel.layer.shadowColor = UIColor.startLabelColor.cgColor
+        titleLabel.layer.shadowOpacity = 1
+        titleLabel.layer.shadowOffset = .init(width: 5, height: 5)
+        titleLabel.layer.shadowRadius = 4
         
     }
     // MARK: - Геометрия элементов

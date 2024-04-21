@@ -12,7 +12,7 @@ extension UITextField {
     convenience init(placeholder: String) {
         self.init()
         self.placeholder = placeholder
-        self.backgroundColor = UIColor.tf
+        self.backgroundColor = .tfColor
         self.heightAnchor.constraint(equalToConstant: 40).isActive = true
         self.layer.cornerRadius = 12
         self.textAlignment = .center
