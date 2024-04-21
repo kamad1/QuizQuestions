@@ -15,9 +15,13 @@ class GameView: UIView {
     var answerButton2 = UIButton(type: .system)
     var answerButton3 = UIButton(type: .system)
     var answerButton4 = UIButton(type: .system)
-    var quastionsLabel = UILabel()
+    var quastionsLabelText = UILabel()
     var priceLabel = UILabel()
+    // НЕ РАБОТАЕТ ФРЕЙМ КРУГА- это лейбл счетчика вомпросов
+    var countLabelQuastions = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: 180.0, height: 180.0))
     
+    
+  
     
     init() {
         super.init(frame: .zero)
@@ -34,13 +38,13 @@ class GameView: UIView {
         backgroundColor = .white
         bgSecondImageView.contentMode = .scaleAspectFit
         
-        quastionsLabel.text = "ТУТ будут ВОПРОСЫ!"
-        quastionsLabel.textColor = .black
-        quastionsLabel.font = .systemFont(ofSize: 25)
-        quastionsLabel.numberOfLines = 0
-        quastionsLabel.textAlignment = .center
-        quastionsLabel.lineBreakMode = .byCharWrapping
-        quastionsLabel.clipsToBounds = true
+        quastionsLabelText.text = "ТУТ будут ВОПРОСЫ!"
+        quastionsLabelText.textColor = .black
+        quastionsLabelText.font = .systemFont(ofSize: 25)
+        quastionsLabelText.numberOfLines = 0
+        quastionsLabelText.textAlignment = .center
+        quastionsLabelText.lineBreakMode = .byCharWrapping
+        quastionsLabelText.clipsToBounds = true
         
         priceLabel.text = "Цена Вопроса: (ТУТ будет цена) руб"
         priceLabel.font = .systemFont(ofSize: 10)
@@ -79,6 +83,14 @@ class GameView: UIView {
         answerButton4.layer.shadowOffset = .init(width: 5, height: 5)
         answerButton4.layer.shadowRadius = 4
         
+        // Лейбл счетчика вопросов
+        countLabelQuastions.text = "6 вопрос"
+        countLabelQuastions.textColor = .white
+        countLabelQuastions.textAlignment = .center
+        countLabelQuastions.font = .systemFont(ofSize: 24)
+        countLabelQuastions.layer.backgroundColor = UIColor.anyColor.cgColor
+        countLabelQuastions.layer.borderColor = UIColor.startLabelColor.cgColor
+        
     }
     
     func setConstraints() {
@@ -104,12 +116,12 @@ class GameView: UIView {
             
         ])
         
-        addSubview(quastionsLabel)
-        quastionsLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(quastionsLabelText)
+        quastionsLabelText.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            quastionsLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            quastionsLabel.bottomAnchor.constraint(equalTo: stackButton.topAnchor, constant: -30)
+            quastionsLabelText.centerXAnchor.constraint(equalTo: centerXAnchor),
+            quastionsLabelText.bottomAnchor.constraint(equalTo: stackButton.topAnchor, constant: -30)
 //            quastionsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
 //            quastionsLabel.leadingAnchor.constraint(equalTo: leftAnchor, constant: 10)
         ])
@@ -119,7 +131,21 @@ class GameView: UIView {
         
         NSLayoutConstraint.activate([
             priceLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            priceLabel.bottomAnchor.constraint(equalTo: quastionsLabel.topAnchor, constant: -20)
+            priceLabel.bottomAnchor.constraint(equalTo: quastionsLabelText.topAnchor, constant: -20)
+        ])
+        
+//        Устанавливаем лейбл счетчика вопросов но не работает фрейм
+        addSubview(countLabelQuastions)
+        countLabelQuastions.translatesAutoresizingMaskIntoConstraints = false
+        // НЕ РАБОТАЕТ
+//        countLabelQuastions.layer.cornerRadius = countLabelQuastions.frame.height / 2
+
+        countLabelQuastions.layer.borderWidth = 3.0
+        countLabelQuastions.layer.masksToBounds = true
+        
+        NSLayoutConstraint.activate([
+            countLabelQuastions.centerXAnchor.constraint(equalTo: centerXAnchor),
+            countLabelQuastions.bottomAnchor.constraint(equalTo: priceLabel.topAnchor, constant: -100)
         ])
     }
 }
