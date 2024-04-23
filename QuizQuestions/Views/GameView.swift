@@ -1,10 +1,7 @@
-
-
 import UIKit
 
 class GameView: UIView {
 
-    
     lazy var bgSecondImageView = UIImageView(image: .bgScreen2)
     var answerButton1 = UIButton(type: .system)
     var answerButton2 = UIButton(type: .system)
