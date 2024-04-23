@@ -17,16 +17,13 @@ class GameView: UIView {
     var answerButton4 = UIButton(type: .system)
     var quastionsLabelText = UILabel()
     var priceLabel = UILabel()
-    // НЕ РАБОТАЕТ ФРЕЙМ КРУГА- это лейбл счетчика вомпросов
-    var countLabelQuastions = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: 180.0, height: 180.0))
-    
-    
-  
+    var countLabelQuastions = UILabel()
     
     init() {
         super.init(frame: .zero)
         setViews()
         setConstraints()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -37,18 +34,18 @@ class GameView: UIView {
     func setViews() {
         backgroundColor = .white
         bgSecondImageView.contentMode = .scaleAspectFit
-        
-        quastionsLabelText.text = "ТУТ будут ВОПРОСЫ!"
+       
+        quastionsLabelText.text = "ТУТ будут ВОПРОСЫ! которые подтянем из сети или из массива"
         quastionsLabelText.textColor = .black
-        quastionsLabelText.font = .systemFont(ofSize: 25)
+        quastionsLabelText.font = UIFont(name: "HelveticaNeue-Bold", size: 30)
         quastionsLabelText.numberOfLines = 0
+        quastionsLabelText.lineBreakMode = .byWordWrapping
         quastionsLabelText.textAlignment = .center
-        quastionsLabelText.lineBreakMode = .byCharWrapping
         quastionsLabelText.clipsToBounds = true
+        quastionsLabelText.sizeToFit()
         
         priceLabel.text = "Цена Вопроса: (ТУТ будет цена) руб"
-        priceLabel.font = .systemFont(ofSize: 10)
-        
+        priceLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 11)
         
         answerButton1.setTitle("ответ 1", for: .normal)
         answerButton2.setTitle("ответ 2", for: .normal)
@@ -84,10 +81,12 @@ class GameView: UIView {
         answerButton4.layer.shadowRadius = 4
         
         // Лейбл счетчика вопросов
-        countLabelQuastions.text = "6 вопрос"
+        countLabelQuastions.text = "6 \nвопрос"
         countLabelQuastions.textColor = .white
         countLabelQuastions.textAlignment = .center
-        countLabelQuastions.font = .systemFont(ofSize: 24)
+        countLabelQuastions.numberOfLines = 0
+        countLabelQuastions.lineBreakMode = .byWordWrapping
+        countLabelQuastions.font = .systemFont(ofSize: 38)
         countLabelQuastions.layer.backgroundColor = UIColor.anyColor.cgColor
         countLabelQuastions.layer.borderColor = UIColor.startLabelColor.cgColor
         
@@ -121,9 +120,9 @@ class GameView: UIView {
         
         NSLayoutConstraint.activate([
             quastionsLabelText.centerXAnchor.constraint(equalTo: centerXAnchor),
-            quastionsLabelText.bottomAnchor.constraint(equalTo: stackButton.topAnchor, constant: -30)
-//            quastionsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
-//            quastionsLabel.leadingAnchor.constraint(equalTo: leftAnchor, constant: 10)
+            quastionsLabelText.bottomAnchor.constraint(equalTo: stackButton.topAnchor, constant: -30),
+            quastionsLabelText.widthAnchor.constraint(equalToConstant: 300),
+            quastionsLabelText.heightAnchor.constraint(equalToConstant: 200)
         ])
         
         addSubview(priceLabel)
@@ -131,21 +130,21 @@ class GameView: UIView {
         
         NSLayoutConstraint.activate([
             priceLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            priceLabel.bottomAnchor.constraint(equalTo: quastionsLabelText.topAnchor, constant: -20)
+            priceLabel.bottomAnchor.constraint(equalTo: quastionsLabelText.topAnchor, constant: -10)
         ])
         
-//        Устанавливаем лейбл счетчика вопросов но не работает фрейм
+//        Устанавливаем лейбл счетчика вопросов
         addSubview(countLabelQuastions)
         countLabelQuastions.translatesAutoresizingMaskIntoConstraints = false
-        // НЕ РАБОТАЕТ
-//        countLabelQuastions.layer.cornerRadius = countLabelQuastions.frame.height / 2
-
         countLabelQuastions.layer.borderWidth = 3.0
         countLabelQuastions.layer.masksToBounds = true
-        
+        countLabelQuastions.layer.cornerRadius = 75
+ 
         NSLayoutConstraint.activate([
             countLabelQuastions.centerXAnchor.constraint(equalTo: centerXAnchor),
-            countLabelQuastions.bottomAnchor.constraint(equalTo: priceLabel.topAnchor, constant: -100)
+            countLabelQuastions.bottomAnchor.constraint(equalTo: priceLabel.topAnchor, constant: -15),
+            countLabelQuastions.widthAnchor.constraint(equalToConstant: 150),
+            countLabelQuastions.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
 }
