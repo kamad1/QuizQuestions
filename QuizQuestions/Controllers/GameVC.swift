@@ -12,8 +12,7 @@ class GameVC: UIViewController {
     var secondView = GameView()
     var balance = 0
     var player: Player!
-    var questions: AllQuastions!
-    
+   
     
     
     override func viewDidLoad() {
@@ -48,7 +47,11 @@ class GameVC: UIViewController {
     func setupGame() {
         secondView.nameLabel.text = player.name
         secondView.balanceLabel.text = "Банк: \(balance) руб"
-
+        let i = AllQuastions.questions.randomElement()
+        secondView.quastionsLabelText.text = i?[0].text
+        secondView.countLabelQuastionsNumberLabel.text = i?[0].id
+        secondView.priceLabel.text = "Цена вопроса:\(String(describing: i![0].price)) руб"
+        secondView.answerButton1.setTitle(i![0].correctAnswer, for: .normal)
         
     }
    
