@@ -9,7 +9,7 @@ import Foundation
 
 class Player {
     
-    var AllQuestions: [String] = []
+
     
     let name: String
     private(set) var score: Int = 0

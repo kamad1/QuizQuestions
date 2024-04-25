@@ -3,15 +3,17 @@ import UIKit
 class GameView: UIView {
 
     lazy var bgSecondImageView = UIImageView(image: .bgScreen2)
-    var answerButton1 = UIButton(type: .system)
-    var answerButton2 = UIButton(type: .system)
-    var answerButton3 = UIButton(type: .system)
-    var answerButton4 = UIButton(type: .system)
+    var answerButton1: UIButton = .init(title: "ответ 1")
+    var answerButton2: UIButton = .init(title: "ответ 2")
+    var answerButton3: UIButton = .init(title: "ответ 3")
+    var answerButton4: UIButton = .init(title: "ответ 4")
     var quastionsLabelText = UILabel()
     var priceLabel = UILabel()
-    var countLabelQuastions = UILabel()
+    var countLabelQuastionsNumberLabel = UILabel()
+    var countLabelQuastionsTextLabel = UILabel()
     var outButton = UIButton(type: .system)
     var balanceLabel = UILabel()
+    var nameLabel = UILabel()
     
     init() {
         super.init(frame: .zero)
@@ -41,10 +43,11 @@ class GameView: UIView {
         priceLabel.text = "Цена Вопроса: (ТУТ будет цена) руб"
         priceLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 11)
         
-        answerButton1.setTitle("ответ 1", for: .normal)
-        answerButton2.setTitle("ответ 2", for: .normal)
-        answerButton3.setTitle("ответ 3", for: .normal)
-        answerButton4.setTitle("ответ 4", for: .normal)
+        nameLabel.text = "Gamer"
+        nameLabel.textAlignment = .center
+        nameLabel.backgroundColor = .anyColor
+        nameLabel.textColor = .white
+        
         answerButton1.tintColor = .white
         answerButton2.tintColor = .white
         answerButton3.tintColor = .white
@@ -57,36 +60,29 @@ class GameView: UIView {
         answerButton2.backgroundColor = .anyColor
         answerButton3.backgroundColor = .anyColor
         answerButton4.backgroundColor = .anyColor
-        answerButton1.layer.cornerRadius = 12
         answerButton1.layer.shadowColor = UIColor.accent.cgColor
-        answerButton1.layer.shadowOpacity = 1
-        answerButton1.layer.shadowOffset = .init(width: 5, height: 5)
-        answerButton1.layer.shadowRadius = 4
-        answerButton2.layer.cornerRadius = 12
         answerButton2.layer.shadowColor = UIColor.accent.cgColor
-        answerButton2.layer.shadowOpacity = 1
-        answerButton2.layer.shadowOffset = .init(width: 5, height: 5)
-        answerButton2.layer.shadowRadius = 4
-        answerButton3.layer.cornerRadius = 12
         answerButton3.layer.shadowColor = UIColor.accent.cgColor
-        answerButton3.layer.shadowOpacity = 1
-        answerButton3.layer.shadowOffset = .init(width: 5, height: 5)
-        answerButton3.layer.shadowRadius = 4
-        answerButton4.layer.cornerRadius = 12
         answerButton4.layer.shadowColor = UIColor.accent.cgColor
-        answerButton4.layer.shadowOpacity = 1
-        answerButton4.layer.shadowOffset = .init(width: 5, height: 5)
-        answerButton4.layer.shadowRadius = 4
+
         
         // Лейбл счетчика вопросов
-        countLabelQuastions.text = "(№ вопроса)"
-        countLabelQuastions.textColor = .white
-        countLabelQuastions.textAlignment = .center
-        countLabelQuastions.numberOfLines = 0
-        countLabelQuastions.lineBreakMode = .byWordWrapping
-        countLabelQuastions.font = .systemFont(ofSize: 38)
-        countLabelQuastions.layer.backgroundColor = UIColor.anyColor.cgColor
-        countLabelQuastions.layer.borderColor = UIColor.startLabelColor.cgColor
+        countLabelQuastionsNumberLabel.text = "1"
+        countLabelQuastionsNumberLabel.textColor = .white
+        countLabelQuastionsNumberLabel.textAlignment = .center
+        countLabelQuastionsNumberLabel.numberOfLines = 0
+        countLabelQuastionsNumberLabel.lineBreakMode = .byWordWrapping
+        countLabelQuastionsNumberLabel.font = .systemFont(ofSize: 70)
+        countLabelQuastionsNumberLabel.layer.backgroundColor = UIColor.anyColor.cgColor
+        
+        
+        countLabelQuastionsTextLabel.text = "вопрос"
+        countLabelQuastionsTextLabel.textColor = .white
+        countLabelQuastionsTextLabel.textAlignment = .center
+        countLabelQuastionsTextLabel.numberOfLines = 0
+        countLabelQuastionsTextLabel.lineBreakMode = .byWordWrapping
+        countLabelQuastionsTextLabel.font = .systemFont(ofSize: 20)
+        countLabelQuastionsTextLabel.layer.backgroundColor = UIColor.anyColor.cgColor
         
         //кнопка сдаться
         outButton.setTitle("Сдаться", for: .normal)
@@ -96,12 +92,10 @@ class GameView: UIView {
         outButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
         outButton.layer.cornerRadius = 12
         outButton.layer.shadowColor = UIColor.accent.cgColor
-//        outButton.layer.shadowOpacity = 1
-//        outButton.layer.shadowOffset = .init(width: 5, height: 5)
-//        outButton.layer.shadowRadius = 4
+
         
         // лейбл баланса
-        balanceLabel.text = "Банк: (сумма)руб"
+        balanceLabel.text = "Банк: руб"
         balanceLabel.textColor = .white
         balanceLabel.backgroundColor = .anyColor
         balanceLabel.textAlignment = .center
@@ -155,18 +149,24 @@ class GameView: UIView {
         ])
         
 //        Устанавливаем лейбл счетчика вопросов
-        addSubview(countLabelQuastions)
-        countLabelQuastions.translatesAutoresizingMaskIntoConstraints = false
-        countLabelQuastions.layer.borderWidth = 3.0
-        countLabelQuastions.layer.masksToBounds = true
-        countLabelQuastions.layer.cornerRadius = 75
- 
+        let stackCountLabelQuastionsNumber = UIStackView(views: [countLabelQuastionsNumberLabel, countLabelQuastionsTextLabel], axis: .vertical, spasing: 5 , alignment: .center)
+        addSubview(stackCountLabelQuastionsNumber)
+        stackCountLabelQuastionsNumber.translatesAutoresizingMaskIntoConstraints = false
+        stackCountLabelQuastionsNumber.layer.borderWidth = 3.0
+        stackCountLabelQuastionsNumber.layer.masksToBounds = true
+        stackCountLabelQuastionsNumber.layer.cornerRadius = 75
+        stackCountLabelQuastionsNumber.contentMode = .scaleAspectFit
+        stackCountLabelQuastionsNumber.layer.backgroundColor = UIColor.anyColor.cgColor
+        stackCountLabelQuastionsNumber.layer.borderColor = UIColor.startLabelColor.cgColor
+        
         NSLayoutConstraint.activate([
-            countLabelQuastions.centerXAnchor.constraint(equalTo: centerXAnchor),
-            countLabelQuastions.bottomAnchor.constraint(equalTo: priceLabel.topAnchor, constant: -15),
-            countLabelQuastions.widthAnchor.constraint(equalToConstant: 150),
-            countLabelQuastions.heightAnchor.constraint(equalToConstant: 150)
-        ])
+            stackCountLabelQuastionsNumber.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stackCountLabelQuastionsNumber.bottomAnchor.constraint(equalTo: priceLabel.topAnchor, constant: -15),
+            stackCountLabelQuastionsNumber.widthAnchor.constraint(equalToConstant: 150),
+            stackCountLabelQuastionsNumber.heightAnchor.constraint(equalToConstant: 150),
+            countLabelQuastionsNumberLabel.heightAnchor.constraint(equalTo: countLabelQuastionsTextLabel.heightAnchor, constant: 50)
+                ])
+
         
         // кнопка сдаться
         addSubview(outButton)
@@ -192,5 +192,20 @@ class GameView: UIView {
             balanceLabel.widthAnchor.constraint(equalToConstant: 110),
             balanceLabel.heightAnchor.constraint(equalToConstant: 37)
         ])
+        
+        addSubview(nameLabel)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            nameLabel.bottomAnchor.constraint(equalTo: stackCountLabelQuastionsNumber.topAnchor, constant: -15),
+            nameLabel.heightAnchor.constraint(equalTo: nameLabel.heightAnchor, constant: 50)
+                ])
     }
+    
+    
+}
+
+#Preview {
+    GameView()
 }

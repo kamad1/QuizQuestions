@@ -17,7 +17,11 @@ class StartController: UIViewController {
         view = mainView
         addActions()
     }
-    
+    // метод который при выходе на главный экран очищает плейсхолдер
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        mainView.myNameTF.text?.removeAll()
+    }
 // MARK: - Методы
     
     // Метод добавления действий стартnjulf

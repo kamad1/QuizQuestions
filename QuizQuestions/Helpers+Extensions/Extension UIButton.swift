@@ -10,13 +10,12 @@ import UIKit
 
 extension UIButton {
     
-    convenience init(cornerRadius: CGFloat, shadowColor: CGColor, shadowOpacity: Float, shadowOffset: CGSize, shadowRadius: CGFloat
-    ) {
-        self.init()
-        self.layer.cornerRadius = layer.cornerRadius
-        self.layer.shadowColor = layer.shadowColor
-        self.layer.shadowOpacity = layer.shadowOpacity
-        self.layer.shadowOffset = layer.shadowOffset
-        self.layer.shadowRadius = layer.shadowRadius
+    convenience init(title: String ) {
+        self.init(type: .system)
+        setTitle(title, for: .normal)
+        layer.cornerRadius = 12
+        layer.shadowOpacity = 1
+        layer.shadowOffset = .init(width: 5, height: 5)
+        layer.shadowRadius = 4
     }
 }

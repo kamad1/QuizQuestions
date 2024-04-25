@@ -6,7 +6,7 @@ class StartView: UIView {
     lazy var bgImageView = UIImageView(image: .bgMain)
     let titleLabel = UILabel()
     let myNameTF = UITextField(placeholder: "Введите ваше имя...")
-    let startButton = UIButton(type: .system)
+    let startButton: UIButton = .init(title: "Старт!")
     
 
     init() {
@@ -20,14 +20,10 @@ class StartView: UIView {
         backgroundColor = .white
         bgImageView.contentMode = .scaleAspectFit
         // настройка внешнего вида кнопки
-        startButton.setTitle("Старт!", for: .normal)
         startButton.tintColor = .white
         startButton.backgroundColor = UIColor.startButtonColor.withAlphaComponent(0.8)
-        startButton.layer.cornerRadius = 12
         startButton.layer.shadowColor = UIColor.startButtonColor.cgColor
-        startButton.layer.shadowOpacity = 1
-        startButton.layer.shadowOffset = .init(width: 5, height: 5)
-        startButton.layer.shadowRadius = 4
+
         // Настройка внешнего вида лейбла
         titleLabel.text = "О, Счастливчик!"
         titleLabel.font = .boldSystemFont(ofSize: 30)
@@ -53,15 +49,6 @@ class StartView: UIView {
                                 axis: .vertical,
                                 spasing: 18,
                                 alignment: .fill)
-        
-        // НО НИЖЕ КОД я закомичу и все перенесу в расширение настроек стэка
-        // настройка стэка вертикально
-//        stack.axis = .vertical
-        // расстояние между элементами стека
-//        stack.spacing = 18
-        // заполнение элементов в стэке fill - заполнят все пространство
-//        stack.alignment = .fill
-        // ТЕПЕРЬ настроив стэк добавим его на экран и настроим сам стэк на экране
         addSubview(stack)
         stack.translatesAutoresizingMaskIntoConstraints = false
         
@@ -92,4 +79,8 @@ class StartView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+#Preview {
+    StartView()
 }
