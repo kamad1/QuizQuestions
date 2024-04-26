@@ -1,9 +1,3 @@
-//
-//  GameVC.swift
-//  QuizQuestions
-//
-//  Created by Jedi on 21.04.2024.
-//
 
 import UIKit
 
