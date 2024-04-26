@@ -45,7 +45,7 @@ class GameVC: UIViewController {
         secondView.quastionsLabelText.text = i?[0].text
         secondView.countLabelQuastionsNumberLabel.text = i?[0].id
         secondView.priceLabel.text = "Цена вопроса:\(String(describing: i![0].price)) руб"
-        secondView.answerButton1.setTitle(i![0].correctAnswer, for: .normal)
+        
         
     }
    

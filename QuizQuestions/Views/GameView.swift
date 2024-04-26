@@ -2,18 +2,30 @@ import UIKit
 
 class GameView: UIView {
 
-    lazy var bgSecondImageView = UIImageView(image: .bgScreen2)
-    var answerButton1: UIButton = .init(title: "ответ 1")
-    var answerButton2: UIButton = .init(title: "ответ 2")
-    var answerButton3: UIButton = .init(title: "ответ 3")
-    var answerButton4: UIButton = .init(title: "ответ 4")
-    var quastionsLabelText = UILabel()
-    var priceLabel = UILabel()
-    var countLabelQuastionsNumberLabel = UILabel()
-    var countLabelQuastionsTextLabel = UILabel()
+    lazy var bgSecondImageView = UIImageView(image: .bgSecondView)
+    var answerTableView = UITableView()
+    var quastionsLabelText: UILabel = .init(text: "ТУТ будут ВОПРОСЫ! которые подтянем из сети или из массива",
+                                            color: .black, font: UIFont(name: "HelveticaNeue-Bold", size: 30)!, bgColor: .clear)
+    var priceLabel: UILabel = .init(text: "Цена Вопроса: (ТУТ будет цена) руб",
+                                    color: .black,
+                                    font: UIFont(name: "HelveticaNeue-Bold", size: 11)!, bgColor: .clear)
+    var countLabelQuastionsNumberLabel: UILabel = .init(text: "1",
+                                                        color: .white,
+                                                        font: .systemFont(ofSize: 70),
+                                                        bgColor: .anyColor)
+    var countLabelQuastionsTextLabel: UILabel = .init(text: "вопрос",
+                                                        color: .white,
+                                                        font: .systemFont(ofSize: 20),
+                                                        bgColor: .anyColor)
     var outButton = UIButton(type: .system)
-    var balanceLabel = UILabel()
-    var nameLabel = UILabel()
+    var balanceLabel: UILabel = .init(text: "Банк: руб",
+                                      color: .white,
+                                      font: .systemFont(ofSize: 10),
+                                      bgColor: .anyColor)
+    var nameLabel: UILabel = .init(text: "Gamer",
+                                   color: .black,
+                                   font: .systemFont(ofSize: 20),
+                                   bgColor: .blue.withAlphaComponent(0.4))
     
     init() {
         super.init(frame: .zero)
@@ -28,61 +40,15 @@ class GameView: UIView {
     
     
     func setViews() {
+      
         backgroundColor = .white
-        bgSecondImageView.contentMode = .scaleAspectFit
+        bgSecondImageView.contentMode = .scaleAspectFill
        
-        quastionsLabelText.text = "ТУТ будут ВОПРОСЫ! которые подтянем из сети или из массива"
-        quastionsLabelText.textColor = .black
-        quastionsLabelText.font = UIFont(name: "HelveticaNeue-Bold", size: 30)
-        quastionsLabelText.numberOfLines = 0
-        quastionsLabelText.lineBreakMode = .byWordWrapping
-        quastionsLabelText.textAlignment = .center
         quastionsLabelText.clipsToBounds = true
         quastionsLabelText.sizeToFit()
         
-        priceLabel.text = "Цена Вопроса: (ТУТ будет цена) руб"
-        priceLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 11)
-        
-        nameLabel.text = "Gamer"
-        nameLabel.textAlignment = .center
-        nameLabel.backgroundColor = .anyColor
-        nameLabel.textColor = .white
-        
-        answerButton1.tintColor = .white
-        answerButton2.tintColor = .white
-        answerButton3.tintColor = .white
-        answerButton4.tintColor = .white
-        answerButton1.titleLabel?.adjustsFontSizeToFitWidth = true
-        answerButton2.titleLabel?.adjustsFontSizeToFitWidth = true
-        answerButton3.titleLabel?.adjustsFontSizeToFitWidth = true
-        answerButton4.titleLabel?.adjustsFontSizeToFitWidth = true
-        answerButton1.backgroundColor = .anyColor
-        answerButton2.backgroundColor = .anyColor
-        answerButton3.backgroundColor = .anyColor
-        answerButton4.backgroundColor = .anyColor
-        answerButton1.layer.shadowColor = UIColor.accent.cgColor
-        answerButton2.layer.shadowColor = UIColor.accent.cgColor
-        answerButton3.layer.shadowColor = UIColor.accent.cgColor
-        answerButton4.layer.shadowColor = UIColor.accent.cgColor
-
-        
-        // Лейбл счетчика вопросов
-        countLabelQuastionsNumberLabel.text = "1"
-        countLabelQuastionsNumberLabel.textColor = .white
-        countLabelQuastionsNumberLabel.textAlignment = .center
-        countLabelQuastionsNumberLabel.numberOfLines = 0
-        countLabelQuastionsNumberLabel.lineBreakMode = .byWordWrapping
-        countLabelQuastionsNumberLabel.font = .systemFont(ofSize: 70)
-        countLabelQuastionsNumberLabel.layer.backgroundColor = UIColor.anyColor.cgColor
-        
-        
-        countLabelQuastionsTextLabel.text = "вопрос"
-        countLabelQuastionsTextLabel.textColor = .white
-        countLabelQuastionsTextLabel.textAlignment = .center
-        countLabelQuastionsTextLabel.numberOfLines = 0
-        countLabelQuastionsTextLabel.lineBreakMode = .byWordWrapping
-        countLabelQuastionsTextLabel.font = .systemFont(ofSize: 20)
-        countLabelQuastionsTextLabel.layer.backgroundColor = UIColor.anyColor.cgColor
+        answerTableView.layer.cornerRadius = 12
+        answerTableView.backgroundColor = .blue.withAlphaComponent(0.3)
         
         //кнопка сдаться
         outButton.setTitle("Сдаться", for: .normal)
@@ -95,11 +61,6 @@ class GameView: UIView {
 
         
         // лейбл баланса
-        balanceLabel.text = "Банк: руб"
-        balanceLabel.textColor = .white
-        balanceLabel.backgroundColor = .anyColor
-        balanceLabel.textAlignment = .center
-        balanceLabel.font = .systemFont(ofSize: 10)
         balanceLabel.layer.masksToBounds = true
         balanceLabel.layer.shadowColor = UIColor.accent.cgColor
         balanceLabel.layer.shadowOpacity = 1
@@ -117,35 +78,35 @@ class GameView: UIView {
             bgSecondImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             bgSecondImageView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
-        
-        let stackButton = UIStackView(views: [answerButton1, answerButton2, answerButton3, answerButton4], axis: .vertical, spasing: 15, alignment: .fill)
-        addSubview(stackButton)
-        stackButton.translatesAutoresizingMaskIntoConstraints = false
+        // ТАБЛИЦА
+        addSubview(answerTableView)
+        answerTableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            stackButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            stackButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            stackButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            stackButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10)
-            
-        ])
-        
+            answerTableView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            answerTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            answerTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            answerTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            answerTableView.heightAnchor.constraint(equalToConstant: 300)
+
+                ])
+        // Текст вопроса
         addSubview(quastionsLabelText)
         quastionsLabelText.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             quastionsLabelText.centerXAnchor.constraint(equalTo: centerXAnchor),
-            quastionsLabelText.bottomAnchor.constraint(equalTo: stackButton.topAnchor, constant: -30),
+            quastionsLabelText.bottomAnchor.constraint(equalTo: answerTableView.topAnchor, constant: -1),
             quastionsLabelText.widthAnchor.constraint(equalToConstant: 300),
             quastionsLabelText.heightAnchor.constraint(equalToConstant: 200)
         ])
-        
+        // цена вопроса
         addSubview(priceLabel)
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             priceLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            priceLabel.bottomAnchor.constraint(equalTo: quastionsLabelText.topAnchor, constant: -10)
+            priceLabel.bottomAnchor.constraint(equalTo: quastionsLabelText.topAnchor, constant: -1)
         ])
         
 //        Устанавливаем лейбл счетчика вопросов
@@ -161,7 +122,7 @@ class GameView: UIView {
         
         NSLayoutConstraint.activate([
             stackCountLabelQuastionsNumber.centerXAnchor.constraint(equalTo: centerXAnchor),
-            stackCountLabelQuastionsNumber.bottomAnchor.constraint(equalTo: priceLabel.topAnchor, constant: -15),
+            stackCountLabelQuastionsNumber.bottomAnchor.constraint(equalTo: priceLabel.topAnchor, constant: -7),
             stackCountLabelQuastionsNumber.widthAnchor.constraint(equalToConstant: 150),
             stackCountLabelQuastionsNumber.heightAnchor.constraint(equalToConstant: 150),
             countLabelQuastionsNumberLabel.heightAnchor.constraint(equalTo: countLabelQuastionsTextLabel.heightAnchor, constant: 50)
@@ -195,15 +156,15 @@ class GameView: UIView {
         
         addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.layer.cornerRadius = 12
+        nameLabel.layer.masksToBounds = true
         
         NSLayoutConstraint.activate([
             nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            nameLabel.bottomAnchor.constraint(equalTo: stackCountLabelQuastionsNumber.topAnchor, constant: -15),
-            nameLabel.heightAnchor.constraint(equalTo: nameLabel.heightAnchor, constant: 50)
+            nameLabel.bottomAnchor.constraint(equalTo: stackCountLabelQuastionsNumber.topAnchor, constant: -10),
+            nameLabel.widthAnchor.constraint(equalTo: nameLabel.heightAnchor, constant: 50)
                 ])
     }
-    
-    
 }
 
 #Preview {
