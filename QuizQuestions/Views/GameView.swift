@@ -48,7 +48,8 @@ class GameView: UIView {
         quastionsLabelText.sizeToFit()
         
         answerTableView.layer.cornerRadius = 12
-        answerTableView.backgroundColor = .blue.withAlphaComponent(0.3)
+//        answerTableView.backgroundColor = .blue.withAlphaComponent(0.3)
+        answerTableView.backgroundColor = .clear
         
         //кнопка сдаться
         outButton.setTitle("Сдаться", for: .normal)
@@ -66,6 +67,9 @@ class GameView: UIView {
         balanceLabel.layer.shadowOpacity = 1
         balanceLabel.layer.shadowOffset = .init(width: 5, height: 5)
         balanceLabel.layer.shadowRadius = 4
+        
+        //Регистрируем ячейку 
+        answerTableView.register(AnswerTableView.self, forCellReuseIdentifier: AnswerTableView.reuseID)
     }
     
     func setConstraints() {
