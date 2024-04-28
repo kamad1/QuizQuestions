@@ -22,6 +22,9 @@ class GameVC: UIViewController {
         //указали кто будет источником данных
         secondView.answerTableView.dataSource = self
         secondView.answerTableView.delegate = self
+        
+        correctStep()
+        endGameAction()
     }
     
     // Создаю алерт для кнопки выйти
@@ -78,6 +81,23 @@ class GameVC: UIViewController {
         
     }
     
+    func correctStep() {
+// проверку слова делаю в обработке ячейки
+        //если слово верное то идем в этот метод если нет то отработает там метод конца игры
+        
+        balance += questins[0].price
+        
+        guard currentQuestionsIndex == 14 else {return}
+        endGameAction()
+        currentQuestionsIndex += 1
+        
+        secondView.quastionsLabelText.text = questins[1].text
+        secondView.countLabelQuastionsNumberLabel.text = questins[1].questionNumber
+        secondView.priceLabel.text = "Цена Вопроса: \(questins[1].price) руб"
+        
+        secondView.answerTableView.reloadData()
+    }
+    
     //action если ты победил
     func endGameAction() {
         let endAction = UIAction { _ in
@@ -100,26 +120,6 @@ class GameVC: UIViewController {
         secondView.outButton.addAction(endAction, for: .touchUpInside)
     
     }
-    
-    func correctStep() {
-// проверку слова делаю в обработке ячейки
-        //если слово верное то идем в этот метод если нет то отработает там метод конца игры
-        
-        balance += questins[0].price
-        
-        guard currentQuestionsIndex == 14 else {return }
-        
-        endGameAction()
-        currentQuestionsIndex += 1
-        
-//        secondView.quastionsLabelText.text = questins[0].text
-//        secondView.countLabelQuastionsNumberLabel.text = questins[0].questionNumber
-//        secondView.priceLabel.text = "Цена Вопроса: \(questins[0].price) руб"
-        
-        secondView.answerTableView.reloadData()
-    }
-    
-    
    
 }
 
@@ -140,8 +140,11 @@ extension GameVC: UITableViewDataSource {
 extension GameVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // не работает проверка правильного нажатия
-//        guard questins[0].correctAnswer == answer[indexPath.row] else {return endGameAction()}
+        print(answer[indexPath.row])
+        print(currentQuestionsIndex)
+        guard answer[indexPath.row]  == questins[0].correctAnswer else {return endGameAction()}
         correctStep()
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
