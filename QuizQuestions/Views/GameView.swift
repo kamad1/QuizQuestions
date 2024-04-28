@@ -47,10 +47,13 @@ class GameView: UIView {
         quastionsLabelText.clipsToBounds = true
         quastionsLabelText.sizeToFit()
         
-        answerTableView.layer.cornerRadius = 12
-//        answerTableView.backgroundColor = .blue.withAlphaComponent(0.3)
-        answerTableView.backgroundColor = .clear
         
+//
+        answerTableView.backgroundColor = .clear
+        answerTableView.layer.cornerRadius = 12
+        answerTableView.backgroundColor = .anyColor
+        answerTableView.layer.borderWidth = 3
+        answerTableView.layer.borderColor = UIColor.startLabelColor.cgColor
         //кнопка сдаться
         outButton.setTitle("Сдаться", for: .normal)
         outButton.titleLabel?.adjustsFontSizeToFitWidth = true

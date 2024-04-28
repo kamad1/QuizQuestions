@@ -9,7 +9,7 @@ class GameVC: UIViewController {
    var currentQuestionsIndex = 0
     var questins: [Quastion] = [.init(text: "1212", id: "", correctAnswer: "правильный ответ", questionNumber: "16", price: 1600, destructors: ["2024", "2023", "2023"], difficulty: .easy)]
     var answer = [String]()
-    
+ 
     
     
     override func viewDidLoad() {
@@ -27,6 +27,7 @@ class GameVC: UIViewController {
         
         
     }
+   
     
     // Создаю алерт для кнопки выйти
     func addAction() {
@@ -75,7 +76,8 @@ class GameVC: UIViewController {
         secondView.quastionsLabelText.text = firstQuest.text
         secondView.countLabelQuastionsNumberLabel.text = "\(currentQuestionsIndex + 1)"
         secondView.priceLabel.text = "Цена Вопроса: \(firstQuest.price) руб"
-
+ 
+        
         secondView.answerTableView.reloadData()
         
     }
@@ -85,7 +87,7 @@ class GameVC: UIViewController {
         //если слово верное то идем в этот метод если нет то отработает там метод конца игры
 //        currentQuestionsIndex += 1
         secondView.balanceLabel.text =  "Банк \(balance) руб"
-        guard currentQuestionsIndex != 14 else { showInfoAlert(massage: "Вы ответили на все вопросы верно ваш выйгрыш составил: \(balance)")
+        guard currentQuestionsIndex != 14 else { showInfoAlert(massage: "УРА ПОЗДРАВЛЯЕМ ВАС \(player.name) Вы ответили на все вопросы верно ваш выйгрыш составил: \(balance)")
             return }
         
   
@@ -93,7 +95,7 @@ class GameVC: UIViewController {
         secondView.quastionsLabelText.text = questins[currentQuestionsIndex].text
         secondView.countLabelQuastionsNumberLabel.text = "\(currentQuestionsIndex + 1)"
         secondView.priceLabel.text = "Цена Вопроса: \(questins[currentQuestionsIndex].price) руб"
-        
+      
         secondView.answerTableView.reloadData()
 
     }
@@ -120,9 +122,10 @@ extension GameVC: UITableViewDelegate {
         // не работает проверка правильного нажатия
         print(answer[indexPath.row])
         print(currentQuestionsIndex)
-        guard answer[indexPath.row]  == questins[currentQuestionsIndex].correctAnswer else { showInfoAlert(massage: "Вы ответили не правильно ваш выйгрыш = \(balance)")
+        guard answer[indexPath.row]  == questins[currentQuestionsIndex].correctAnswer else { showInfoAlert(massage: "К сожалению уважаемый(ая) \(player.name) Вы ответили не правильно ваш выйгрыш = \(balance)")
             return}
         secondView.balanceLabel.text =  "Банк \(balance = questins[currentQuestionsIndex].price + balance) руб"
+        
         currentQuestionsIndex += 1
         
         
@@ -136,9 +139,5 @@ extension GameVC: UITableViewDelegate {
        
        return "Список ответов"
     }
+    
 }
-
-//let i = AllQuastions.questions.randomElement()
-//secondView.quastionsLabelText.text = i?[0].text
-//secondView.countLabelQuastionsNumberLabel.text = i?[0].id
-//secondView.priceLabel.text = "Цена вопроса:\(String(describing: i![0].price)) руб"

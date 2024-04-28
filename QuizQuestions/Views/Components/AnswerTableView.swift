@@ -10,7 +10,7 @@ import UIKit
 class AnswerTableView: UITableViewCell {
     static let reuseID: String = "AnswerTableView"
     
-    let answerLabel = UILabel(text: "ANSWERS1", font: .boldSystemFont(ofSize: 10), bgColor: .red)
+    let answerLabel = UILabel(text: "ANSWERS1", font: .boldSystemFont(ofSize: 20), bgColor: .anyColor)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,12 +26,14 @@ class AnswerTableView: UITableViewCell {
         answerLabel.textAlignment = .center
         
         backgroundColor = .anyColor
+        
     }
     
     func senConstreints() {
         addSubview(answerLabel)
         answerLabel.translatesAutoresizingMaskIntoConstraints = false
-        answerLabel.backgroundColor = .blue.withAlphaComponent(0.4)
+        answerLabel.backgroundColor = .clear
+        
         
         NSLayoutConstraint.activate([
             answerLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
