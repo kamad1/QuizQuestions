@@ -17,14 +17,15 @@ class GameVC: UIViewController {
         print(player.name)
         view = secondView
         addAction()
-        setupGame()
         getQuestionsForGame()
+        setupGame()
+//        correctStep()
+        
         //указали кто будет источником данных
         secondView.answerTableView.dataSource = self
         secondView.answerTableView.delegate = self
         
-        correctStep()
-        endGameAction()
+        
     }
     
     // Создаю алерт для кнопки выйти
@@ -48,7 +49,7 @@ class GameVC: UIViewController {
         secondView.outButton.addAction(quitAction, for: .touchUpInside)
     }
     // функция получения вопроса
-    func getQuestionsForGame() -> [Quastion]{
+    func getQuestionsForGame() {
         let allQuestions = Quastion.mockData
         let easy = allQuestions.filter { $0.difficulty == .easy }.shuffled()[0..<5]
         let medium = allQuestions.filter { $0.difficulty == .medium }.shuffled()[0..<5]
@@ -56,7 +57,7 @@ class GameVC: UIViewController {
         var questins = easy
         questins.append(contentsOf: medium)
         questins.append(contentsOf: hard)
-        return Array(questins)
+        self.questins = Array(questins)
         
     }
     
@@ -65,61 +66,38 @@ class GameVC: UIViewController {
         secondView.nameLabel.text = player.name
         secondView.balanceLabel.text = "Банк: \(balance) руб"
         //обновляем таблицу
-        let quest = getQuestionsForGame()
+        let firstQuest = questins[currentQuestionsIndex]
         
         answer = questins[currentQuestionsIndex].answer
-        answer = quest[0].destructors
-        answer.append(quest[0].correctAnswer)
+//        answer.append(questins[currentQuestionsIndex].correctAnswer)
         
        
-        secondView.quastionsLabelText.text = quest[0].text
-        secondView.countLabelQuastionsNumberLabel.text = quest[0].questionNumber
-        secondView.priceLabel.text = "Цена Вопроса: \(quest[0].price) руб"
-        
+        secondView.quastionsLabelText.text = firstQuest.text
+        secondView.countLabelQuastionsNumberLabel.text = "\(currentQuestionsIndex + 1)"
+        secondView.priceLabel.text = "Цена Вопроса: \(firstQuest.price) руб"
+
         secondView.answerTableView.reloadData()
-        
         
     }
     
     func correctStep() {
 // проверку слова делаю в обработке ячейки
         //если слово верное то идем в этот метод если нет то отработает там метод конца игры
+//        currentQuestionsIndex += 1
+        secondView.balanceLabel.text =  "Банк \(balance) руб"
+        guard currentQuestionsIndex != 14 else { showInfoAlert(massage: "Вы ответили на все вопросы верно ваш выйгрыш составил: \(balance)")
+            return }
         
-        balance += questins[0].price
-        
-        guard currentQuestionsIndex == 14 else {return}
-        endGameAction()
-        currentQuestionsIndex += 1
-        
-        secondView.quastionsLabelText.text = questins[1].text
-        secondView.countLabelQuastionsNumberLabel.text = questins[1].questionNumber
-        secondView.priceLabel.text = "Цена Вопроса: \(questins[1].price) руб"
+  
+        answer = questins[currentQuestionsIndex].answer
+        secondView.quastionsLabelText.text = questins[currentQuestionsIndex].text
+        secondView.countLabelQuastionsNumberLabel.text = "\(currentQuestionsIndex + 1)"
+        secondView.priceLabel.text = "Цена Вопроса: \(questins[currentQuestionsIndex].price) руб"
         
         secondView.answerTableView.reloadData()
-    }
-    
-    //action если ты победил
-    func endGameAction() {
-        let endAction = UIAction { _ in
-            // создаем сам лист на который все поместим
-            let quitSheet = UIAlertController(title: "Игра окончена\nВАШ РЕЗУЛЬТАТ: \(self.balance)", message: nil, preferredStyle: .actionSheet)
-            // добавим на нее 2 кнопки
-            let yesAction = UIAlertAction(title: "Начать заного", style: .destructive) { _ in
-                self.dismiss(animated: true)
-                
-            }
-            
-           
-            // добавить 2 кнопки на сам quitSheet
-            quitSheet.addAction(yesAction)
 
-            // нужно теперь показать
-            self.present(quitSheet, animated: true)
-            
-        }
-        secondView.outButton.addAction(endAction, for: .touchUpInside)
-    
     }
+    
    
 }
 
@@ -142,7 +120,13 @@ extension GameVC: UITableViewDelegate {
         // не работает проверка правильного нажатия
         print(answer[indexPath.row])
         print(currentQuestionsIndex)
-        guard answer[indexPath.row]  == questins[0].correctAnswer else {return endGameAction()}
+        guard answer[indexPath.row]  == questins[currentQuestionsIndex].correctAnswer else { showInfoAlert(massage: "Вы ответили не правильно ваш выйгрыш = \(balance)")
+            return}
+        secondView.balanceLabel.text =  "Банк \(balance = questins[currentQuestionsIndex].price + balance) руб"
+        currentQuestionsIndex += 1
+        
+        
+     
         correctStep()
         
     }

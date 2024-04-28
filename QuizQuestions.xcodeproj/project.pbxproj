@@ -23,6 +23,7 @@
 		814F133A2BD7DBA50012B6C3 /* Extension UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13392BD7DBA50012B6C3 /* Extension UIButton.swift */; };
 		814F133C2BDBE4BF0012B6C3 /* Label+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F133B2BDBE4BF0012B6C3 /* Label+Extension.swift */; };
 		814F133E2BDE38690012B6C3 /* AnswerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F133D2BDE38690012B6C3 /* AnswerTableView.swift */; };
+		814F13412BDE72750012B6C3 /* VCExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13402BDE72750012B6C3 /* VCExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		814F13392BD7DBA50012B6C3 /* Extension UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension UIButton.swift"; sourceTree = "<group>"; };
 		814F133B2BDBE4BF0012B6C3 /* Label+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Extension.swift"; sourceTree = "<group>"; };
 		814F133D2BDE38690012B6C3 /* AnswerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerTableView.swift; sourceTree = "<group>"; };
+		814F13402BDE72750012B6C3 /* VCExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				814F132B2BD4FEC80012B6C3 /* UIColor+Extension.swift */,
 				814F13392BD7DBA50012B6C3 /* Extension UIButton.swift */,
 				814F133B2BDBE4BF0012B6C3 /* Label+Extension.swift */,
+				814F13402BDE72750012B6C3 /* VCExt.swift */,
 			);
 			path = "Helpers+Extensions";
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				814F13412BDE72750012B6C3 /* VCExt.swift in Sources */,
 				814F132C2BD4FEC80012B6C3 /* UIColor+Extension.swift in Sources */,
 				814F133C2BDBE4BF0012B6C3 /* Label+Extension.swift in Sources */,
 				814F133A2BD7DBA50012B6C3 /* Extension UIButton.swift in Sources */,
