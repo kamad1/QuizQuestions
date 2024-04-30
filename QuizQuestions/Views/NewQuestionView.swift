@@ -27,7 +27,7 @@ class NewQuestionView: UIView {
     //
     //    }
     // Енам не победил требует инициализировать переменную ее не получилось обойти)))
-    var menuSegmentControll = ["Легкий","Средний", "Средний"]
+    var menuSegmentControll = ["Легкий","Средний", "Сложный"]
     
     lazy var textQuestionTF = UITextField(placeholder: "Введите новый вопрос")
     lazy var currentAnswerTF = UITextField(placeholder: "Введите правильный ответ")
