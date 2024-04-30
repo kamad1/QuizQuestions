@@ -24,6 +24,8 @@
 		814F133C2BDBE4BF0012B6C3 /* Label+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F133B2BDBE4BF0012B6C3 /* Label+Extension.swift */; };
 		814F133E2BDE38690012B6C3 /* AnswerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F133D2BDE38690012B6C3 /* AnswerTableView.swift */; };
 		814F13412BDE72750012B6C3 /* VCExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13402BDE72750012B6C3 /* VCExt.swift */; };
+		814F13452BE0C2800012B6C3 /* NewQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13442BE0C2800012B6C3 /* NewQuestionView.swift */; };
+		814F13472BE0C3500012B6C3 /* AddNewQuestionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13462BE0C3500012B6C3 /* AddNewQuestionsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		814F133B2BDBE4BF0012B6C3 /* Label+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Extension.swift"; sourceTree = "<group>"; };
 		814F133D2BDE38690012B6C3 /* AnswerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerTableView.swift; sourceTree = "<group>"; };
 		814F13402BDE72750012B6C3 /* VCExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCExt.swift; sourceTree = "<group>"; };
+		814F13442BE0C2800012B6C3 /* NewQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuestionView.swift; sourceTree = "<group>"; };
+		814F13462BE0C3500012B6C3 /* AddNewQuestionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewQuestionsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			children = (
 				814F13122BD4DA880012B6C3 /* StartController.swift */,
 				814F13312BD50FF60012B6C3 /* GameVC.swift */,
+				814F13462BE0C3500012B6C3 /* AddNewQuestionsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 			children = (
 				814F13222BD4E0F40012B6C3 /* StartView.swift */,
 				814F13332BD510200012B6C3 /* GameView.swift */,
+				814F13442BE0C2800012B6C3 /* NewQuestionView.swift */,
 				814F133F2BDE38700012B6C3 /* Components */,
 			);
 			path = Views;
@@ -227,7 +233,9 @@
 				814F130F2BD4DA880012B6C3 /* AppDelegate.swift in Sources */,
 				814F13342BD510200012B6C3 /* GameView.swift in Sources */,
 				814F13302BD502490012B6C3 /* Player.swift in Sources */,
+				814F13472BE0C3500012B6C3 /* AddNewQuestionsController.swift in Sources */,
 				814F13112BD4DA880012B6C3 /* SceneDelegate.swift in Sources */,
+				814F13452BE0C2800012B6C3 /* NewQuestionView.swift in Sources */,
 				814F13362BD514CD0012B6C3 /* Quastion.swift in Sources */,
 				814F13252BD4E9E60012B6C3 /* TextFieldExtension.swift in Sources */,
 				814F133E2BDE38690012B6C3 /* AnswerTableView.swift in Sources */,
