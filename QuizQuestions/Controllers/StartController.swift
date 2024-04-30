@@ -35,6 +35,14 @@ class StartController: UIViewController {
         
         mainView.startButton.addAction(startAction, for: .touchUpInside)
         
+        let addAction = UIAction { [unowned self] _ in
+            
+            let vc = AddNewQuestionsController()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
+        
+        mainView.addQuestionButton.addAction(addAction, for: .touchUpInside)
     }
 
 }

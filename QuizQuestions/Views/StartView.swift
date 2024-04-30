@@ -7,6 +7,7 @@ class StartView: UIView {
     let titleLabel = UILabel()
     let myNameTF = UITextField(placeholder: "Введите ваше имя...")
     let startButton: UIButton = .init(title: "Старт!")
+    let addQuestionButton: UIButton = .init(title: "Добавить вопросы")
     
 
     init() {
@@ -23,7 +24,10 @@ class StartView: UIView {
         startButton.tintColor = .white
         startButton.backgroundColor = UIColor.startButtonColor.withAlphaComponent(0.8)
         startButton.layer.shadowColor = UIColor.startButtonColor.cgColor
-
+        
+        addQuestionButton.tintColor = .white
+        addQuestionButton.backgroundColor = UIColor.startButtonColor.withAlphaComponent(0.8)
+        addQuestionButton.layer.shadowColor = UIColor.startButtonColor.cgColor
         // Настройка внешнего вида лейбла
         titleLabel.text = "О, Счастливчик!"
         titleLabel.font = .boldSystemFont(ofSize: 30)
@@ -45,7 +49,7 @@ class StartView: UIView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         // Создал стэк для текст филда и кнопки - НИЖЕ код закомичен и внесен сюда так как есть расширение настройки стэка
-        let stack = UIStackView(views: [myNameTF, startButton],
+        let stack = UIStackView(views: [myNameTF, startButton, addQuestionButton],
                                 axis: .vertical,
                                 spasing: 18,
                                 alignment: .fill)
@@ -67,12 +71,17 @@ class StartView: UIView {
         
         // настройка кнопки высоты
         startButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        addQuestionButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         // настройка лейбла
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: stack.topAnchor, constant: -150)
         ])
+        
+//        addSubview(addQuestionButton)
+//        addQuestionButton.translatesAutoresizingMaskIntoConstraints = false
+        
     }
     
     required init?(coder: NSCoder) {
