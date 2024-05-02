@@ -55,13 +55,13 @@ var mainView = NewQuestionView()
             guard let wrongAnswer3 = mainView.wrongAnswer3TF.text, !wrongAnswer3.isEmpty  else {showInfoAlert(massage: "поле не может быть пустым")
                 return
             }
-//            guard let dificulty = Quastion.Difficulty.allCases[mainView.segmentcontroll.selectedSegmentIndex] else {
-//                {showInfoAlert(massage: "поле не может быть пустым")
-//                    return
-//                
-//            }
+            guard let dificulty = Quastion.Difficulty.allCases[mainView.segmentcontroll.selectedSegmentIndex] else {
+                {showInfoAlert(massage: "поле не может быть пустым")
+                    return
+                
+            }
 
-                let newQuestion = Quastion(text: text, id: "16", correctAnswer: textAnswer, questionNumber: "16", price: 5000, destructors: [wrongAnswer1, wrongAnswer2, wrongAnswer3], difficulty: Quastion.Difficulty.allCases[mainView.segmentcontroll.selectedSegmentIndex])
+                let newQuestion = Quastion(text: text, id: "16", correctAnswer: textAnswer, questionNumber: "16", price: 5000, destructors: [wrongAnswer1, wrongAnswer2, wrongAnswer3], difficulty:.easy)
                 
             newQuestion.text.append(mainView.textQuestionTF.text!)
             newQuestion.correctAnswer.append(mainView.currentAnswerTF.text!)
