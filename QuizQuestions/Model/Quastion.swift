@@ -9,13 +9,15 @@ import Foundation
 
 class Quastion {
 
+    
+
     var text: String
     var id: String
     var correctAnswer: String
     var questionNumber: String
     var price: Int
     var destructors: [String]
-    let difficulty: Difficulty
+    var difficulty: Difficulty
     
     
     
@@ -34,7 +36,7 @@ class Quastion {
         self.difficulty = difficulty
     }
     
-    enum Difficulty: String {
+    enum Difficulty: String, CaseIterable {
         case easy = "Легкий"
         case medium = "Средний"
         case hard = "Сложный"

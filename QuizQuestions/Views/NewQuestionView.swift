@@ -15,18 +15,7 @@ class NewQuestionView: UIView {
                                   color: .startLabelColor,
                                   font: .boldSystemFont(ofSize: 30),
                                   bgColor: .clear)
-    //    var deffeculty: Quastion.Difficulty?
-    //
-    //    var menuSegmentControll: String {
-    //
-    //        switch deffeculty! {
-    //        case .easy : "Легкий"
-    //        case .medium : "Средний"
-    //        case .hard : "Сложный"
-    //        }
-    //
-    //    }
-    // Енам не победил требует инициализировать переменную ее не получилось обойти)))
+   
     var menuSegmentControll = ["Легкий","Средний", "Сложный"]
     
     lazy var textQuestionTF = UITextField(placeholder: "Введите новый вопрос")
@@ -159,3 +148,16 @@ class NewQuestionView: UIView {
 #Preview {
     NewQuestionView()
 }
+
+//    var deffeculty: Quastion.Difficulty?
+//
+//    var menuSegmentControll: String {
+//
+//        switch deffeculty! {
+//        case .easy : "Легкий"
+//        case .medium : "Средний"
+//        case .hard : "Сложный"
+//        }
+//
+//    }
+// Енам не победил требует инициализировать переменную ее не получилось обойти)))

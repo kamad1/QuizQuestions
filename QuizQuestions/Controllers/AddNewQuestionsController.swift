@@ -43,7 +43,7 @@ var mainView = NewQuestionView()
             guard let text = mainView.textQuestionTF.text, !text.isEmpty  else {showInfoAlert(massage: "поле не может быть пустым")
                 return
             }
-            guard let textAnswer = mainView.currentAnswerTF.text, textAnswer.isEmpty else {showInfoAlert(massage: "поле не может быть пустым")
+            guard let textAnswer = mainView.currentAnswerTF.text, !textAnswer.isEmpty else {showInfoAlert(massage: "поле не может быть пустым")
                 return}
             
             guard let wrongAnswer1 = mainView.wrongAnswer1TF.text, !wrongAnswer1.isEmpty  else {showInfoAlert(massage: "поле не может быть пустым")
@@ -55,21 +55,28 @@ var mainView = NewQuestionView()
             guard let wrongAnswer3 = mainView.wrongAnswer3TF.text, !wrongAnswer3.isEmpty  else {showInfoAlert(massage: "поле не может быть пустым")
                 return
             }
-            let newQuestion = Quastion(text: "", id: "16", correctAnswer: "", questionNumber: "16", price: 500, destructors: ["","",""], difficulty: .easy)
+//            guard let dificulty = Quastion.Difficulty.allCases[mainView.segmentcontroll.selectedSegmentIndex] else {
+//                {showInfoAlert(massage: "поле не может быть пустым")
+//                    return
+//                
+//            }
+
+                let newQuestion = Quastion(text: text, id: "16", correctAnswer: textAnswer, questionNumber: "16", price: 5000, destructors: [wrongAnswer1, wrongAnswer2, wrongAnswer3], difficulty: Quastion.Difficulty.allCases[mainView.segmentcontroll.selectedSegmentIndex])
+                
             newQuestion.text.append(mainView.textQuestionTF.text!)
             newQuestion.correctAnswer.append(mainView.currentAnswerTF.text!)
             newQuestion.destructors.append(mainView.wrongAnswer1TF.text!)
             newQuestion.destructors.append(mainView.wrongAnswer2TF.text!)
             newQuestion.destructors.append(mainView.wrongAnswer3TF.text!)
-            
-            // Не получилось изменить сложность
-            //        func selectedValue(target: UISegmentedControl) {
-            //            if target == mainView.segmentcontroll {
-            //                let segmentIndex = target.selectedSegmentIndex
-            //                newQuestion.difficulty = self.segmentIndex
-            //            }
-            //        }
-            //        newQuestion.difficulty.self = mainView.segmentcontroll.
+            newQuestion.difficulty = Quastion.Difficulty.allCases[mainView.segmentcontroll.selectedSegmentIndex]
+//             Не получилось изменить сложность
+//                    func selectedValue(target: UISegmentedControl) {
+//                        if target == mainView.segmentcontroll {
+//                            let segmentIndex = target.selectedSegmentIndex
+//                            newQuestion.difficulty = self.segmentIndex
+//                        }
+//                    }
+//                newQuestion.difficulty.self = mainView.segmentcontroll.selectedSegmentIndex
             Quastion.mockData.append(newQuestion)
             
             
@@ -80,3 +87,6 @@ var mainView = NewQuestionView()
         mainView.saveButton.addAction(saveAction, for: .touchUpInside)
     }
 }
+
+
+//            let newQuestion = Quastion(text: "", id: "16", correctAnswer: "", questionNumber: "16", price: 500, destructors: [], difficulty: .easy)
