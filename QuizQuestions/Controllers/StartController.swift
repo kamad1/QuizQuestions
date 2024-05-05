@@ -10,6 +10,9 @@ class StartController: UIViewController {
         super.viewDidLoad()
         view = mainView
         addActions()
+       
+        
+  
     }
     // метод который при выходе на главный экран очищает плейсхолдер
     override func viewDidDisappear(_ animated: Bool) {
@@ -43,6 +46,15 @@ class StartController: UIViewController {
         }
         
         mainView.addQuestionButton.addAction(addAction, for: .touchUpInside)
+        
+        let addActionList = UIAction { [unowned self] _ in
+            
+            let vc = AllQuestionList()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
+        
+        mainView.allQuestions.addAction(addActionList, for: .touchUpInside)
     }
 
 }

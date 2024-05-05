@@ -26,7 +26,11 @@ class UserDefaultsService {
     
     
     func getAllQuestions() -> [Quastion] {
-        guard let represes = conteiner.array(forKey: questionKey) as? [[String: Any]] else { return [] }
+        guard let represes = conteiner.array(forKey: questionKey) as? [[String: Any]] else {
+            let questions = Quastion.mockData.map {$0.representation }
+            conteiner.set(questions, forKey: questionKey)
+            return Quastion.mockData
+     }
         let question = represes.compactMap { Quastion($0) }
         
         return question

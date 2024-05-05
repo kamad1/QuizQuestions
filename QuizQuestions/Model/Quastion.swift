@@ -73,7 +73,7 @@ extension Quastion {
         repres["price"] = price
         repres["correctAnswer"] = correctAnswer
         repres["destructors"] = destructors
-        repres["difficulty"] = difficulty
+        repres["difficulty"] = difficulty.rawValue
         return repres
     }
 }
@@ -86,8 +86,18 @@ extension Quastion {
              let price = representation["price"] as? Int,
              let correctAnswer = representation["correctAnswer"] as? String,
              let destructors = representation["destructors"] as? [String],
-             let difficulty = representation["difficulty"] as? Difficulty else { return nil }
+             let difficultyValue = representation["difficulty"] as? String else { return nil }
         
+         let difficulty =
+         switch difficultyValue {
+         case Difficulty.easy.rawValue:
+             Difficulty.easy
+         case Difficulty.medium.rawValue:
+             Difficulty.medium
+         default: Difficulty.hard
+             
+         }
+         
         self.text = text
          self.id = id
          self.questionNumber = questionNumber

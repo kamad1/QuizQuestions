@@ -27,6 +27,11 @@
 		814F13452BE0C2800012B6C3 /* NewQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13442BE0C2800012B6C3 /* NewQuestionView.swift */; };
 		814F13472BE0C3500012B6C3 /* AddNewQuestionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13462BE0C3500012B6C3 /* AddNewQuestionsController.swift */; };
 		814F137B2BE7546D0012B6C3 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F137A2BE7546D0012B6C3 /* UserDefaultsService.swift */; };
+		814F13892BE7BD780012B6C3 /* AllQuestionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13882BE7BD780012B6C3 /* AllQuestionList.swift */; };
+		814F138B2BE7BD9B0012B6C3 /* AllQuestionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F138A2BE7BD9B0012B6C3 /* AllQuestionListView.swift */; };
+		814F138D2BE7C21D0012B6C3 /* AllQuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F138C2BE7C21D0012B6C3 /* AllQuestionCell.swift */; };
+		814F138F2BE7CF4E0012B6C3 /* InfoOneQuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F138E2BE7CF4E0012B6C3 /* InfoOneQuestionsView.swift */; };
+		814F13922BE7CFAD0012B6C3 /* InfoOneQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13912BE7CFAD0012B6C3 /* InfoOneQuestions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +57,11 @@
 		814F13442BE0C2800012B6C3 /* NewQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuestionView.swift; sourceTree = "<group>"; };
 		814F13462BE0C3500012B6C3 /* AddNewQuestionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewQuestionsController.swift; sourceTree = "<group>"; };
 		814F137A2BE7546D0012B6C3 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		814F13882BE7BD780012B6C3 /* AllQuestionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllQuestionList.swift; sourceTree = "<group>"; };
+		814F138A2BE7BD9B0012B6C3 /* AllQuestionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllQuestionListView.swift; sourceTree = "<group>"; };
+		814F138C2BE7C21D0012B6C3 /* AllQuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllQuestionCell.swift; sourceTree = "<group>"; };
+		814F138E2BE7CF4E0012B6C3 /* InfoOneQuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoOneQuestionsView.swift; sourceTree = "<group>"; };
+		814F13912BE7CFAD0012B6C3 /* InfoOneQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoOneQuestions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +110,8 @@
 				814F13122BD4DA880012B6C3 /* StartController.swift */,
 				814F13312BD50FF60012B6C3 /* GameVC.swift */,
 				814F13462BE0C3500012B6C3 /* AddNewQuestionsController.swift */,
+				814F13882BE7BD780012B6C3 /* AllQuestionList.swift */,
+				814F13902BE7CF8E0012B6C3 /* ComponentcController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -110,6 +122,7 @@
 				814F13222BD4E0F40012B6C3 /* StartView.swift */,
 				814F13332BD510200012B6C3 /* GameView.swift */,
 				814F13442BE0C2800012B6C3 /* NewQuestionView.swift */,
+				814F138A2BE7BD9B0012B6C3 /* AllQuestionListView.swift */,
 				814F133F2BDE38700012B6C3 /* Components */,
 			);
 			path = Views;
@@ -153,6 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				814F133D2BDE38690012B6C3 /* AnswerTableView.swift */,
+				814F138C2BE7C21D0012B6C3 /* AllQuestionCell.swift */,
+				814F138E2BE7CF4E0012B6C3 /* InfoOneQuestionsView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -163,6 +178,14 @@
 				814F137A2BE7546D0012B6C3 /* UserDefaultsService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		814F13902BE7CF8E0012B6C3 /* ComponentcController */ = {
+			isa = PBXGroup;
+			children = (
+				814F13912BE7CFAD0012B6C3 /* InfoOneQuestions.swift */,
+			);
+			path = ComponentcController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,18 +261,23 @@
 				814F13412BDE72750012B6C3 /* VCExt.swift in Sources */,
 				814F132C2BD4FEC80012B6C3 /* UIColor+Extension.swift in Sources */,
 				814F133C2BDBE4BF0012B6C3 /* Label+Extension.swift in Sources */,
+				814F13892BE7BD780012B6C3 /* AllQuestionList.swift in Sources */,
+				814F138B2BE7BD9B0012B6C3 /* AllQuestionListView.swift in Sources */,
 				814F133A2BD7DBA50012B6C3 /* Extension UIButton.swift in Sources */,
 				814F13132BD4DA880012B6C3 /* StartController.swift in Sources */,
 				814F13272BD4EE8C0012B6C3 /* UIStackViewExtension.swift in Sources */,
 				814F137B2BE7546D0012B6C3 /* UserDefaultsService.swift in Sources */,
 				814F130F2BD4DA880012B6C3 /* AppDelegate.swift in Sources */,
+				814F138D2BE7C21D0012B6C3 /* AllQuestionCell.swift in Sources */,
 				814F13342BD510200012B6C3 /* GameView.swift in Sources */,
 				814F13302BD502490012B6C3 /* Player.swift in Sources */,
 				814F13472BE0C3500012B6C3 /* AddNewQuestionsController.swift in Sources */,
+				814F138F2BE7CF4E0012B6C3 /* InfoOneQuestionsView.swift in Sources */,
 				814F13112BD4DA880012B6C3 /* SceneDelegate.swift in Sources */,
 				814F13452BE0C2800012B6C3 /* NewQuestionView.swift in Sources */,
 				814F13362BD514CD0012B6C3 /* Quastion.swift in Sources */,
 				814F13252BD4E9E60012B6C3 /* TextFieldExtension.swift in Sources */,
+				814F13922BE7CFAD0012B6C3 /* InfoOneQuestions.swift in Sources */,
 				814F133E2BDE38690012B6C3 /* AnswerTableView.swift in Sources */,
 				814F13322BD50FF60012B6C3 /* GameVC.swift in Sources */,
 				814F13232BD4E0F40012B6C3 /* StartView.swift in Sources */,

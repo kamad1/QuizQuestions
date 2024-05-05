@@ -18,7 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Принициализировать окно
         window = UIWindow(windowScene: scene)
         // Задать окну корневой контроллер
-        window?.rootViewController = StartController()
+        let navVC = UINavigationController(rootViewController: StartController())
+        
+        navVC.navigationBar.titleTextAttributes = [.font: UIFont(name: "AvenirNext-bold", size: 25) as Any]
+        navVC.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.orange]
+        window?.rootViewController = navVC
         //Сделать окно ключевым и видемым
         window?.makeKeyAndVisible()
         

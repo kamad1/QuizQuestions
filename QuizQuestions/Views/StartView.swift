@@ -8,7 +8,7 @@ class StartView: UIView {
     let myNameTF = UITextField(placeholder: "Введите ваше имя...")
     let startButton: UIButton = .init(title: "Старт!")
     let addQuestionButton: UIButton = .init(title: "Добавить вопросы")
-    
+    let allQuestions: UIButton = .init(title: "Список всех вопросов")
 
     init() {
         super.init(frame: .zero)
@@ -37,6 +37,9 @@ class StartView: UIView {
         titleLabel.layer.shadowOffset = .init(width: 5, height: 5)
         titleLabel.layer.shadowRadius = 4
         
+        allQuestions.tintColor = .white
+        allQuestions.backgroundColor = UIColor.startButtonColor.withAlphaComponent(0.8)
+        allQuestions.layer.shadowColor = UIColor.startButtonColor.cgColor
     }
     // MARK: - Геометрия элементов
     func setConstraints() {
@@ -49,7 +52,7 @@ class StartView: UIView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         // Создал стэк для текст филда и кнопки - НИЖЕ код закомичен и внесен сюда так как есть расширение настройки стэка
-        let stack = UIStackView(views: [myNameTF, startButton, addQuestionButton],
+        let stack = UIStackView(views: [myNameTF, startButton, addQuestionButton, allQuestions],
                                 axis: .vertical,
                                 spasing: 18,
                                 alignment: .fill)
@@ -72,14 +75,14 @@ class StartView: UIView {
         // настройка кнопки высоты
         startButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         addQuestionButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
+        allQuestions.heightAnchor.constraint(equalToConstant: 40).isActive = true
         // настройка лейбла
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: stack.topAnchor, constant: -150)
         ])
         
-//        addSubview(addQuestionButton)
+//        addSubview(allQuestions)
 //        addQuestionButton.translatesAutoresizingMaskIntoConstraints = false
         
     }

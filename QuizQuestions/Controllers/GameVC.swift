@@ -54,13 +54,9 @@ class GameVC: UIViewController {
     }
     // функция получения вопроса
     func getQuestionsForGame() {
-//        let newQuestion = UserDefaultsService.shared.getAllQuestions()
-//        self.questins = newQuestion
 
+        let allQuestions = UserDefaultsService.shared.getAllQuestions()
         
-        
-        let allQuestions = Quastion.mockData
-
         let easy = allQuestions.filter { $0.difficulty == .easy }.shuffled()[0..<5]
         let medium = allQuestions.filter { $0.difficulty == .medium }.shuffled()[0..<5]
         let hard = allQuestions.filter { $0.difficulty == .hard }.shuffled()[0..<5]
