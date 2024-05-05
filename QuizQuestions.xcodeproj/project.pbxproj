@@ -26,6 +26,7 @@
 		814F13412BDE72750012B6C3 /* VCExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13402BDE72750012B6C3 /* VCExt.swift */; };
 		814F13452BE0C2800012B6C3 /* NewQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13442BE0C2800012B6C3 /* NewQuestionView.swift */; };
 		814F13472BE0C3500012B6C3 /* AddNewQuestionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F13462BE0C3500012B6C3 /* AddNewQuestionsController.swift */; };
+		814F137B2BE7546D0012B6C3 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814F137A2BE7546D0012B6C3 /* UserDefaultsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		814F13402BDE72750012B6C3 /* VCExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCExt.swift; sourceTree = "<group>"; };
 		814F13442BE0C2800012B6C3 /* NewQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuestionView.swift; sourceTree = "<group>"; };
 		814F13462BE0C3500012B6C3 /* AddNewQuestionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewQuestionsController.swift; sourceTree = "<group>"; };
+		814F137A2BE7546D0012B6C3 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				814F132D2BD501840012B6C3 /* SuppurtFiles */,
+				814F137C2BE7548A0012B6C3 /* Service */,
 				814F13282BD4FDD20012B6C3 /* Controllers */,
 				814F13292BD4FDE50012B6C3 /* Views */,
 				814F132E2BD5022D0012B6C3 /* Model */,
@@ -152,6 +155,14 @@
 				814F133D2BDE38690012B6C3 /* AnswerTableView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		814F137C2BE7548A0012B6C3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				814F137A2BE7546D0012B6C3 /* UserDefaultsService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +241,7 @@
 				814F133A2BD7DBA50012B6C3 /* Extension UIButton.swift in Sources */,
 				814F13132BD4DA880012B6C3 /* StartController.swift in Sources */,
 				814F13272BD4EE8C0012B6C3 /* UIStackViewExtension.swift in Sources */,
+				814F137B2BE7546D0012B6C3 /* UserDefaultsService.swift in Sources */,
 				814F130F2BD4DA880012B6C3 /* AppDelegate.swift in Sources */,
 				814F13342BD510200012B6C3 /* GameView.swift in Sources */,
 				814F13302BD502490012B6C3 /* Player.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Quastion {
+struct Quastion {
 
     
 
@@ -63,4 +63,39 @@ class Quastion {
     
 }
 
+
+extension Quastion {
+    var representation: [String: Any] {
+        var repres = [String: Any]()
+        repres["text"] = text
+        repres["id"] = id
+        repres["questionNumber"] = questionNumber
+        repres["price"] = price
+        repres["correctAnswer"] = correctAnswer
+        repres["destructors"] = destructors
+        repres["difficulty"] = difficulty
+        return repres
+    }
+}
+
+extension Quastion {
+     init?(_ representation: [String: Any]) {
+       guard let text = representation["text"] as? String,
+             let id = representation["id"] as? String,
+             let questionNumber = representation["questionNumber"] as? String,
+             let price = representation["price"] as? Int,
+             let correctAnswer = representation["correctAnswer"] as? String,
+             let destructors = representation["destructors"] as? [String],
+             let difficulty = representation["difficulty"] as? Difficulty else { return nil }
+        
+        self.text = text
+         self.id = id
+         self.questionNumber = questionNumber
+         self.price = price
+        self.correctAnswer = correctAnswer
+        self.destructors = destructors
+        self.difficulty = difficulty
+        
+    }
+}
 

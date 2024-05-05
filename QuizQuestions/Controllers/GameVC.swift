@@ -7,7 +7,10 @@ class GameVC: UIViewController {
     var balance = 0
     var player: Player!
    var currentQuestionsIndex = 0
+    
+    // Временно уберу получения всех задачь
     var questins: [Quastion] = [.init(text: "1212", id: "", correctAnswer: "правильный ответ", questionNumber: "16", price: 1600, destructors: ["2024", "2023", "2023"], difficulty: .easy)]
+//    var questins: [Quastion] = []
     var answer = [String]()
  
     
@@ -51,7 +54,13 @@ class GameVC: UIViewController {
     }
     // функция получения вопроса
     func getQuestionsForGame() {
+//        let newQuestion = UserDefaultsService.shared.getAllQuestions()
+//        self.questins = newQuestion
+
+        
+        
         let allQuestions = Quastion.mockData
+
         let easy = allQuestions.filter { $0.difficulty == .easy }.shuffled()[0..<5]
         let medium = allQuestions.filter { $0.difficulty == .medium }.shuffled()[0..<5]
         let hard = allQuestions.filter { $0.difficulty == .hard }.shuffled()[0..<5]
@@ -59,6 +68,7 @@ class GameVC: UIViewController {
         questins.append(contentsOf: medium)
         questins.append(contentsOf: hard)
         self.questins = Array(questins)
+        
         
     }
     
@@ -83,9 +93,7 @@ class GameVC: UIViewController {
     }
     
     func correctStep() {
-// проверку слова делаю в обработке ячейки
-        //если слово верное то идем в этот метод если нет то отработает там метод конца игры
-//        currentQuestionsIndex += 1
+
         secondView.balanceLabel.text =  "Банк \(balance) руб"
         guard currentQuestionsIndex != 14 else { showInfoAlert(massage: "УРА ПОЗДРАВЛЯЕМ ВАС \(player.name) Вы ответили на все вопросы верно ваш выйгрыш составил: \(balance)")
             return }
@@ -119,7 +127,6 @@ extension GameVC: UITableViewDataSource {
 
 extension GameVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // не работает проверка правильного нажатия
         print(answer[indexPath.row])
         print(currentQuestionsIndex)
         guard answer[indexPath.row]  == questins[currentQuestionsIndex].correctAnswer else { showInfoAlert(massage: "К сожалению уважаемый(ая) \(player.name) Вы ответили не правильно ваш выйгрыш = \(balance)")

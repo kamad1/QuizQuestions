@@ -55,30 +55,25 @@ var mainView = NewQuestionView()
             guard let wrongAnswer3 = mainView.wrongAnswer3TF.text, !wrongAnswer3.isEmpty  else {showInfoAlert(massage: "поле не может быть пустым")
                 return
             }
-            guard let dificulty = Quastion.Difficulty.allCases[mainView.segmentcontroll.selectedSegmentIndex] else {
-                {showInfoAlert(massage: "поле не может быть пустым")
-                    return
-                
-            }
-
-                let newQuestion = Quastion(text: text, id: "16", correctAnswer: textAnswer, questionNumber: "16", price: 5000, destructors: [wrongAnswer1, wrongAnswer2, wrongAnswer3], difficulty:.easy)
-                
-            newQuestion.text.append(mainView.textQuestionTF.text!)
-            newQuestion.correctAnswer.append(mainView.currentAnswerTF.text!)
-            newQuestion.destructors.append(mainView.wrongAnswer1TF.text!)
-            newQuestion.destructors.append(mainView.wrongAnswer2TF.text!)
-            newQuestion.destructors.append(mainView.wrongAnswer3TF.text!)
-            newQuestion.difficulty = Quastion.Difficulty.allCases[mainView.segmentcontroll.selectedSegmentIndex]
-//             Не получилось изменить сложность
-//                    func selectedValue(target: UISegmentedControl) {
-//                        if target == mainView.segmentcontroll {
-//                            let segmentIndex = target.selectedSegmentIndex
-//                            newQuestion.difficulty = self.segmentIndex
-//                        }
-//                    }
-//                newQuestion.difficulty.self = mainView.segmentcontroll.selectedSegmentIndex
-            Quastion.mockData.append(newQuestion)
+         
+            let index = mainView.segmentcontroll.selectedSegmentIndex
             
+            guard 0..<3 ~= index else {
+                showInfoAlert(massage: "Выберите сложность")
+                return
+            }
+            
+            let dificulty = Quastion.Difficulty.allCases[index]
+
+                let newQuestion = Quastion(text: text, id: "16", correctAnswer: textAnswer, questionNumber: "16", price: 5000, destructors: [wrongAnswer1, wrongAnswer2, wrongAnswer3], difficulty: dificulty)
+
+            
+
+            
+            // Временно уберу добавление задачи в мокданные всех задачь
+//            Quastion.mockData.append(newQuestion)
+            
+            UserDefaultsService.shared.saveQuestion(question: newQuestion)
             
             let vc1 = StartController()
             vc1.modalPresentationStyle = .fullScreen
