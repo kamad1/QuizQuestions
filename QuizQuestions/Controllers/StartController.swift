@@ -10,7 +10,7 @@ class StartController: UIViewController {
         super.viewDidLoad()
         view = mainView
         addActions()
-       
+        addTapToDismissKeyboard()
         
   
     }

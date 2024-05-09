@@ -26,6 +26,18 @@ extension UIViewController {
                self.present(endAction, animated: true)
    
            }
+    // скрытие клавитару и потом где надо просто вызываем этот метод в вьюдидлоед на контроллере
+    func addTapToDismissKeyboard() {
+        let tap = UITapGestureRecognizer(target: self, 
+                                         action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
    
        }
 

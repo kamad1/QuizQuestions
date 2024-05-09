@@ -16,6 +16,7 @@ var mainView = NewQuestionView()
         view = mainView
         addActionBack()
         addSaveAction()
+        addTapToDismissKeyboard()
     }
     
     func addActionBack() {
