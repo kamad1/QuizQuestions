@@ -43,6 +43,7 @@ class StartController: UIViewController {
             let vc = AddNewQuestionsController()
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
+            
         }
         
         mainView.addQuestionButton.addAction(addAction, for: .touchUpInside)
@@ -51,7 +52,8 @@ class StartController: UIViewController {
             
             let vc = AllQuestionList()
             vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
+//            self.present(vc, animated: true)
+            navigationController?.pushViewController(vc, animated: true)
         }
         
         mainView.allQuestions.addAction(addActionList, for: .touchUpInside)

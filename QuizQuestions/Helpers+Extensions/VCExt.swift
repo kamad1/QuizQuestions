@@ -14,7 +14,7 @@ extension UIViewController {
                                              preferredStyle: .alert)
 
                let yesAction = UIAlertAction(title: "Начать заного", style: .destructive) { _ in
-//                   self.dismiss(animated: true)
+                   self.dismiss(animated: true)
    
                }
    

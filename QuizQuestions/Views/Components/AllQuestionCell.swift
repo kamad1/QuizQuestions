@@ -8,6 +8,8 @@ class AllQuestionCell: UITableViewCell {
     
     let questionLabel = UILabel(text: "ANSWERS1", font: .boldSystemFont(ofSize: 20), bgColor: .anyColor)
     
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setViews()
@@ -20,7 +22,6 @@ class AllQuestionCell: UITableViewCell {
     
     func setViews() {
         questionLabel.textAlignment = .left
-        
         backgroundColor = .anyColor
         
     }

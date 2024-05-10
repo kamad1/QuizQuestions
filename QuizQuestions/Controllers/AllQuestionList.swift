@@ -14,7 +14,7 @@ class AllQuestionList: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = mainView
-        navigationItem.title = "navBarTitle"
+        navigationItem.title = "Все вопросы"
         mainView.allQuestionTableView.dataSource = self
         mainView.allQuestionTableView.delegate = self
         
@@ -58,4 +58,6 @@ extension AllQuestionList: UITableViewDelegate {
         detailVC.title = currentQuestions.text
         navigationController?.pushViewController(detailVC, animated: true)
     }
+    
+    
 }
